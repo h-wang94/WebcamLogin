@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "WebcamLogin",
+    "version": "1.0",
+    "description": "Helps you login to websites with your webcam",
+    
+    "browser_action": {
+        "default_icon": "images/icon.png",
+        "default_popup": "popup.html"
+    },
+
+    "permissions": [ "tabs",
+        "http://www.ebay.com/*",
+        "https://www.ebay.com/*",
+        "activeTab",
+        "tabs"
+    ]
+}
