@@ -5,7 +5,8 @@
     "description": "Helps you login to websites with your webcam",
     
     "browser_action": {
-        "default_icon": "images/icon.png"
+        "default_icon": "images/icon.png",
+        "default_popup": "login.html"
     },
 
     "permissions": [ "tabs",
