@@ -4,8 +4,8 @@ var client = new BinaryClient('ws://localhost:9000/');
 
 client.on('open', function() {
     var json = "{username: 'rohan', image: '/images/rohan_face.png', audio: '/audio/rohan_audio.mp3'}";
-    data = {name: "/data/rohan.json", type: "json"};
-    client.send(json, data);
+    var metadata = {name: "rohan.json", type: "json"};
+    client.send(json, metadata);
 });
 
 // Received new stream from server!

@@ -1,0 +1,23 @@
+{
+  "name": "WebcamLogin",
+  "version": "0.0.0",
+  "description": "Logging in through webcam",
+  "main": "app.js",
+  "dependencies": {
+    "binaryjs": "^0.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/h-wang94/WebcamLogin"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/h-wang94/WebcamLogin/issues"
+  },
+  "homepage": "https://github.com/h-wang94/WebcamLogin"
+}
