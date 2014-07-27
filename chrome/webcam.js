@@ -49,7 +49,28 @@
         canvas.width = width;
         canvas.height = height;
         canvas.getContext('2d').drawImage(video, 0, 0, width, height);
-        var imageData = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
+        // socket stuff
+        var imageData = canvas.toDataURL('image/png');
+        var connection = new WebSocket("ws://localhost:8080");
+        connection.onopen = function() {
+            connection.send("SEND");
+        };
+
+        connection.onerror = function(error) {
+            console.log("Error: " + error);
+        };
+
+        connection.onmessage = function(e) {
+            console.log("Server: " + e);
+        };
+
+        var img = imageData.getImageData(0, 0, 480, 240);
+        var binary = new Uint8Array(img.data.length);
+        var i;
+        for (i = 0; i < img.data.length; ++i) {
+            binary[i] = img.data[i];
+        }
+        connection.send(binary.buffer);
     }
 
     startButton.addEventListener('click', function(ev){
