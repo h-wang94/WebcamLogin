@@ -1,1 +1,1 @@
-{username: 'rohan', image: '/images/rohan_face.png', audio: '/audio/rohan_audio.mp3'}
+{username: 'rohan', image: '../server/images/rohan_face.png', audio: '../server/audio/rohan_audio.mp3'}
