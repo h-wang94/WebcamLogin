@@ -51,26 +51,22 @@
         canvas.getContext('2d').drawImage(video, 0, 0, width, height);
         // socket stuff
         var imageData = canvas.toDataURL('image/png');
-        var connection = new WebSocket("ws://localhost:8080");
-        connection.onopen = function() {
-            connection.send("SEND");
-        };
-
-        connection.onerror = function(error) {
-            console.log("Error: " + error);
-        };
-
-        connection.onmessage = function(e) {
-            console.log("Server: " + e);
-        };
-
-        var img = imageData.getImageData(0, 0, 480, 240);
-        var binary = new Uint8Array(img.data.length);
-        var i;
-        for (i = 0; i < img.data.length; ++i) {
-            binary[i] = img.data[i];
-        }
-        connection.send(binary.buffer);
+        //var client = new BinaryClient('ws://localhost:9000/');
+        /*var username = "A";*/
+        //client.on('open', function() {
+            //// need username
+            //var data = {name: "/images/" + username + ".png", type: "png"};
+            //var img = imageData.getImageData(0, 0, 480, 240);
+            //var binary = new Uint8Array(img.data.length);
+            //var i;
+            //for (i = 0; i < img.data.length; ++i) {
+                //binary[i] = img.data[i];
+            //}
+            //client.send(binary.buffer, data);
+            //var json = "{username: 'rohan', image: '/images/rohan_face.png', audio: '/audio/rohan_audio.mp3'}";
+            //data = {name: "/data/rohan.json", type: "json"};
+            //client.send(json, data);
+        /*});*/
     }
 
     startButton.addEventListener('click', function(ev){
