@@ -2,6 +2,7 @@ from voiceid.db import GMMVoiceDB
 from voiceid import fm
 from os.path import splitext
 from voiceid.sr import Voiceid
+import sys
 
 db = GMMVoiceDB('mydir')
 
@@ -20,11 +21,15 @@ def bestSpeaker(file):
     v = Voiceid(db, file, True)
     v.extract_speakers()
     clu = v.get_clusters().values()[0]
+    if len(clu.get_best_five()) <= 0:
+        return None;
     return clu.get_best_five()[0][0]
 
 if __name__ == '__main__':
-    addVoices("HarrySample.mp3", "Harry")
-    addVoices("RohanSample.mp3", "Rohan")
-    addVoices("TomSample.mp3", "Tom")
-    addVoices("HeathSample.mp3", "Heath")
-    print bestSpeaker("Heath0.mp3")
+    if sys.argv[1] == "train":
+        addVoices("HarrySample.mp3", "Harry")
+        addVoices("RohanSample.mp3", "Rohan")
+        addVoices("TomSample.mp3", "Tom")
+        addVoices("HeathSample.mp3", "Heath")
+    else:
+        print bestSpeaker(sys.argv[1])
